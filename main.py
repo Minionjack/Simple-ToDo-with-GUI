@@ -3,20 +3,20 @@ while True:
     user_action = input('Type add, show, edit, complete or exit:')
     user_action = user_action.strip()
 
-    if user_action.startswith('add'):
+    if user_action.startswith('Add'):
         todo = user_action[4:]
         todos = get_todos()
         todos.append(todo + '\n')
-        write_todos(todos, 'todos.txt' )
+        write_todos(todos, 'todos.txt')
 
-    elif user_action.startswith('show'):
+    elif user_action.startswith('Show'):
         todos = get_todos()
 
         for index, item in enumerate(todos):
             item = item.strip('\n')
             row = f'{index+1}-{item}'
             print(row)
-    elif user_action.startswith('edit'):
+    elif user_action.startswith('Edit'):
         try:
             number = int(user_action[5:])
             print(number)
@@ -32,7 +32,7 @@ while True:
             print('Your command is not valid')
             continue
 
-    elif user_action.startswith('complete'):
+    elif user_action.startswith('Complete'):
         try:
             number = int(user_action[9:])
             todos = get_todos()
@@ -46,7 +46,7 @@ while True:
             print('There was no item with that number')
             continue
 
-    elif user_action.startswith('exit'):
+    elif user_action.startswith('Exit'):
         break
     else:
         print('Command not valid.')
